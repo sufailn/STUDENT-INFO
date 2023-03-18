@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="/admin_addstudent_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1">
+    <tr>
+      <td colspan="2" align="center"><img src="{{ data['photo'] }}" width="100px" height="100px"></td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><input type="text" name="textfield" id="textfield" value="{{data['student_name']}}"/></td>
+    </tr>
+    <tr>
+      <td>DOB</td>
+      <td><input type="date" name="textfield2" id="textfield2" value="{{data['dob']}}"/></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><p>
+        <label>
+          <input type="radio" name="gender" value="Male" id="groupone_0" />
+          Male</label>
+        <br />
+        <label>
+            <input type="radio" name="gender" value="Female" id="groupone_1" />
+          Female</label>
+        <br />
+        <label>
+          <input type="radio" name="gender" value="Other" id="groupone_2" />
+          Other</label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>Course</td>
+      <td><select name="select" id="select">
+        {% for i in val %}
+        <option value="{{ i['course_id'] }}">{{ i['course_name'] }}</option>
+        {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td>Semester</td>
+      <td><select name="select2" id="select2">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>E-mail</td>
+      <td><input type="text" name="textfield3" id="textfield3" value="{{data['email_id']}}"/></td>
+    </tr>
+    <tr>
+      <td>Phone number</td>
+      <td><input type="text" name="textfield4" id="textfield4" value="{{data['phone_number']}}"/></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><input type="text" name="textfield5" id="textfield5" value="{{data['place']}}"/></td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td><input type="text" name="textfield6" id="textfield6"value="{{data['city']}}" /></td>
+    </tr>
+    <tr>
+      <td><p>Pincode</p></td>
+      <td><input type="text" name="textfield7" id="textfield7" value="{{data['pin_code']}}"/></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><input type="file" name="pic1" id="fileField" value="{{data['photo']}}"/></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Submit" /></td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1">
+    <tr>
+      <td>Course</td>
+      <td><select name="select" id="select">
+        {% for i in data %}
+        <option value="{{ i['course_id'] }}">{{ i['course_name'] }}</option>
+        {% endfor %}
+      </select></td>
+      <td>Semester</td>
+      <td><select name="select2" id="select2">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select></td>
+      <td><input type="submit" name="button" id="button" value="Go" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table width="200" border="1">
+    <tr>
+      <td>Sl no</td>
+      <td>Course</td>
+      <td>Semester</td>
+      <td>Fee</td>
+      <td>Last Date</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i['course_name'] }}</td>
+      <td>{{ i['semester'] }}</td>
+      <td>{{ i['fee'] }}</td>
+      <td>{{ i['last_date'] }}</td>
+      <td><a href="/adminiedit/{{ i['fee_id']}}">Edit</a></td>
+      <td><a href="/admin_deletefee/{{ i['fee_id']}}">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+</html>

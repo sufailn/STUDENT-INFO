@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1">
+    <tr>
+      <td>Sl no</td>
+      <td>Name</td>
+      <td>DOB</td>
+      <td>Gender</td>
+      <td>Course</td>
+      <td>Contact Details</td>
+      <td>Address</td>
+      <td>Photo</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ i["staff_name"]}}</td>
+      <td>{{ i["dob"]}}</td>
+      <td>{{ i["gender"]}}</td>
+      <td>{{ i["course_id"]}}</td>
+      <td>E-mail:{{ i["email_id"]}}<br>Mob:{{i["phone_number"]}}</td>
+      <td>Place:{{ i["place"]}}<br>City:{{i['city']}}<br>Pincode:{{i['pin_code']}}</td>
+      <td><img src="{{ i['photo']}}" alt="Images"> </td>
+      <td><a href="#">edit</a></td>
+      <td><a href="/admin_deletestaff/{{ i['staff_id']}}">Delete</a></td>
+    </tr>
+    {%endfor %}
+  </table>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/admin_addtimetable_post">
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <table width="200" border="1">
+    <tr>
+      <td>Course</td>
+      <td><select name="select" id="crs">
+        {% for i in data %}
+    <option value="{{ i['course_id']}}">{{ i['course_name']}}</option>
+        {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td>Semester</td>
+      <td><select name="select2" id="sem">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+
+      </select></td>
+    </tr>
+    <tr>
+      <td>Subject</td>
+      <td><select name="select3" id="sub">
+      </select></td>
+    </tr>
+    <tr>
+      <td>Day</td>
+      <td><select name="select4" id="select4">
+        <option>monday</option>
+        <option>tuesday</option>
+        <option>wednesday</option>
+        <option>thursday</option>
+        <option>friday</option>
+        <option>saturday</option>
+
+      </select></td>
+    </tr>
+    <tr>
+      <td>Hour</td>
+      <td><select name="select5" id="select5">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Submit" /></td>
+    </tr>
+  </table>
+  <script src="/static/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+alert("hi");
+        $(document).on('change','#sem',function () {
+
+            var ii=$(this).val();
+            var sem=$("#sem").val()
+
+$("#sub").text("")
+            $.getJSON("/get_subject",{
+                 id:ii,sem:sem
+                },function (data) {
+
+
+                var k=data.length;
+$("#sub").append("<option value=select>select</option>")
+                for(i=0;i<k;i++)
+                {
+                    var id=data[i]["subject_id"];
+                    var name=data[i]["subject_name"];
+$("#sub").append("<option value="+id+">"+name+"</option>")
+                }
+                });
+
+        });
+    });
+
+
+</script>
+</form>
+</body>
+</html>

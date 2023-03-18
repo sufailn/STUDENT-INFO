@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="/admin_addstudent_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1">
+    <tr>
+      <td>Name</td>
+      <td><input type="text" name="textfield" id="textfield" /></td>
+    </tr>
+    <tr>
+      <td>DOB</td>
+      <td><input type="date" name="textfield2" id="textfield2" /></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><p>
+        <label>
+          <input type="radio" name="gender" value="Male" id="groupone_0" />
+          Male</label>
+        <br />
+        <label>
+            <input type="radio" name="gender" value="Female" id="groupone_1" />
+          Female</label>
+        <br />
+        <label>
+          <input type="radio" name="gender" value="Other" id="groupone_2" />
+          Other</label>
+        <br />
+      </p></td>
+    </tr>
+    <tr>
+      <td>Course</td>
+      <td><select name="select" id="select">
+        {% for i in data %}
+        <option value="{{ i['course_id'] }}">{{ i['course_name'] }}</option>
+        {% endfor %}
+      </select></td>
+    </tr>
+    <tr>
+      <td>Semester</td>
+      <td><select name="select2" id="select2">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td>E-mail</td>
+      <td><input type="text" name="textfield3" id="textfield3" /></td>
+    </tr>
+    <tr>
+      <td>Phone number</td>
+      <td><input type="text" name="textfield4" id="textfield4" /></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><input type="text" name="textfield5" id="textfield5" /></td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td><input type="text" name="textfield6" id="textfield6" /></td>
+    </tr>
+    <tr>
+      <td><p>Pincode</p></td>
+      <td><input type="text" name="textfield7" id="textfield7" /></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><input type="file" name="pic1" id="fileField" /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Submit" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</form>
+</body>
+</html>
